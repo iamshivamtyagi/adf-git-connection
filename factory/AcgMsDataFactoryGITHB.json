@@ -1,0 +1,9 @@
+{
+	"name": "AcgMsDataFactoryGITHB",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "217380a3-f0eb-4ce7-8c90-c5457e39c4bf",
+		"tenantId": "84f1e4ea-8554-43e1-8709-f0b8589ea118"
+	}
+}
