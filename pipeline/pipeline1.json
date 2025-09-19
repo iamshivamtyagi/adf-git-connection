@@ -1,0 +1,295 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "MergeFiles"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "RideId",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RideId",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "VendorId",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "VendorId",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "PickupTime",
+									"type": "DateTime",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PickupTime",
+									"type": "DateTime",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "DropTime",
+									"type": "DateTime",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DropTime",
+									"type": "DateTime",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "PickupLocationId",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PickupLocationId",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "DropLocationId",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DropLocationId",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "CabNumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CabNumber",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DriverLicenseNumber",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DriverLicenseNumber",
+									"type": "Int32",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "PassengerCount",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PassengerCount",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "TripDistance",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TripDistance",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "RateCodeId",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RateCodeId",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "PaymentType",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PaymentType",
+									"type": "Int16",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "TotalAmount",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalAmount",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "FareAmount",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FareAmount",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "Extra",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Extra",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "MtaTax",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MtaTax",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "TipAmount",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TipAmount",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "TollsAmount",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TollsAmount",
+									"type": "Double",
+									"isNullable": true
+								}
+							},
+							{
+								"source": {
+									"name": "ImprovementSurcharge",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ImprovementSurcharge",
+									"type": "Double",
+									"isNullable": true
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_parquet",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
